@@ -1,0 +1,19 @@
+
+.form-control:focus{
+    box-shadow: none !important;
+   
+}
+.form-control, .input-group-text  {
+    border: 1px solid green !important;
+
+}
+
+@media (min-width: 992px) {
+    .container-login {
+        padding: 0;
+    }
+    .container-input-login {
+    background: white;
+    height: 100%;
+    }
+}
