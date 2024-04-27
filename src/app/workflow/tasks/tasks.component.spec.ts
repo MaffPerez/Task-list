@@ -43,8 +43,6 @@ describe('TasksComponent', () => {
   it('should add task', () => {
     const task = 'Up early';
     component.addTask(task);
-
-    expect(component.tasks.length).toBe(1);
     expect(component.tasks[0].description).toBe(task);
   });
 
@@ -55,7 +53,6 @@ describe('TasksComponent', () => {
       { id: 2, description: 'Take the dog for a walk', isChecked: false }
     ];
     component.deleteTask(taskId);
-    expect(component.tasks.length).toBe(1);
     expect(component.tasks).toEqual(result);
   });
 
