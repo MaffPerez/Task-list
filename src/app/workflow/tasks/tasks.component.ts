@@ -37,7 +37,7 @@ export class TasksComponent implements OnInit {
         return;
     }
 
-    if (!this.isUniqueTask(task)) {
+    if (!this.validateisUniqueTask(task)) {
         this.tasks.push({
             id: this.taskIdCounter++,
             description: task,
@@ -54,7 +54,7 @@ export class TasksComponent implements OnInit {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
-  isUniqueTask(taskDescription: string) {
+  validateisUniqueTask(taskDescription: string) {
     return this.tasks.some(task => task.description.toLowerCase() === taskDescription.toLowerCase());
   }
 }
