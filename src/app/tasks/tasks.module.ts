@@ -4,6 +4,7 @@ import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksComponent } from './components/tasks.component';
 import { CardTaskComponent } from './components/card-task/card-task.component';
 import { FormsModule } from '@angular/forms';
+import { DirectiveModule } from '../directives/aplhanumeric.module';
 
 
 @NgModule({
@@ -13,12 +14,13 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     TasksComponent,
-    CardTaskComponent
+    CardTaskComponent,
   ],
   imports: [
     CommonModule,
     TasksRoutingModule,
     FormsModule,
+    DirectiveModule
   ]
 })
 export class TasksModule { }
