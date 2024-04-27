@@ -2,6 +2,7 @@ import { Component } from "@angular/core"
 import { Login } from "./login.presenter"
 import { User } from "../interface/user.interface"
 import { Router } from "@angular/router"
+import { AuthService } from "../service/auth.service";
 
 
 @Component({
@@ -11,17 +12,22 @@ import { Router } from "@angular/router"
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  isLoginError = false;
 
   constructor(
     public presenterLogin: Login,
-    public router: Router
-  ) {}
+    public router: Router,
+    private authService: AuthService
+  ) {
+  }
 
   validateUser(userCredentials: User) {
-    if (userCredentials.user && userCredentials.password === 'test01') {
-      this.presenterLogin.form.reset();
+    const isAuthenticated = this.authService.isValidUser(userCredentials.user, userCredentials.password);
+    if (isAuthenticated) {
       this.router.navigate(['tasks']);
+    } else {
+      this.isLoginError = true;
     }
-    
+    this.presenterLogin.form.reset();
   }
 }

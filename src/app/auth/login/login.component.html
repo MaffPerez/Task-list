@@ -29,7 +29,7 @@
               placeholder="Contraseña"
             />
           </div>
-
+          <small  *ngIf="isLoginError" class="text-danger ms-2">Usuario o contraseña incorrecta, intente otra vez.</small>
           <button type="submit" class="btn btn-success btn-lg w-100" [disabled]="!presenterLogin.form.valid" (click)="validateUser(presenterLogin.form.value)">Ingresar</button>
         </form>
       </div>

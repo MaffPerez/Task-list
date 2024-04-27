@@ -4,12 +4,12 @@
             <img src="../assets/images/bird-task.svg" class="img-fluid" alt="Bird with a text box"/>
         </div>
         <div class="col-lg-9">
-            <h1 class="mb-4">Hola Evie!</h1>
+            <h1 class="mb-4">Hola {{currentUser}}!</h1>
             <div class="input-group">
                 <input type="text" class="form-control border-success" placeholder="Tarea:" [(ngModel)]="newTask" (keydown.enter)="addTask(newTask)"/>
                 <button class="btn btn-success btn-lg" (click)="addTask(newTask)">Agregar</button>
             </div>
-            <small  *ngIf="existError" class="text-danger ms-2">Por favor agregue una tarea</small>
+            <small  *ngIf="messageError" class="text-danger ms-2">{{messageError}}</small>
         </div>
     </div>
     <ng-container *ngIf="tasks.length">

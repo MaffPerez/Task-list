@@ -6,6 +6,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+
+//Store
+import { userReducer } from './store/reducers/user.reducer';
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
@@ -18,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ user: userReducer })
   ],
   bootstrap: [AppComponent]
 })
