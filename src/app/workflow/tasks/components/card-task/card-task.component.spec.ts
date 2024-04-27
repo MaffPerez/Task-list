@@ -8,10 +8,10 @@ describe('CardTaskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardTaskComponent]
+      declarations: [ CardTaskComponent ]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CardTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,12 @@ describe('CardTaskComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit task ID when deleteTask is called', () => {
+    const taskId = 1;
+    const emitSpy = spyOn(component.sendId, 'emit');
+    component.deleteTask(taskId);
+    expect(emitSpy).toHaveBeenCalledWith(taskId);
   });
 });

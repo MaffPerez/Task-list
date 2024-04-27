@@ -14,7 +14,7 @@ export class AlphanumericDirective {
     const current: string = this.elementRef.nativeElement.value;
     const keyPressed: string = String(event.key);
     const textToEvaluate = current.concat(keyPressed);
-    const regex: RegExp = new RegExp(/^[0-9a-zA-Z]+$/g);
+    const regex: RegExp = new RegExp(/^[a-zA-Z0-9\s]*$/g);
     return (!regex.test(textToEvaluate)) ? event.preventDefault() : null;
   }
 

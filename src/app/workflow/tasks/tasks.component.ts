@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Tasks } from '../models/tasks.interface';
-import { ERROR_MESSAGE } from '../constants/tasks.constants';
 import { Store, select } from '@ngrx/store';
-import { UserState } from '../../store/reducers/user.reducer';
-import { Observable, filter } from 'rxjs';
-import { User } from '../../auth/interface/user.interface';
-import { selectCurrentUser } from '../../store/selectors/user.selector';
+import { filter } from 'rxjs';
+import { selectCurrentUser } from 'src/app/store/selectors/user.selector';
+import { ERROR_MESSAGE } from 'src/app/workflow/tasks/constants/tasks.constants';
+import { Tasks } from 'src/app/workflow/tasks/models/tasks.interface';
 
 @Component({
   selector: 'app-tasks',
-  standalone: false,
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss'
+  styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
+
   newTask = '';
   tasks: Tasks[] = [];
   taskIdCounter = 1;
@@ -39,7 +37,7 @@ export class TasksComponent implements OnInit {
         return;
     }
 
-    if (!this.isUniqueTask(task)) {
+    if (!this.validateisUniqueTask(task)) {
         this.tasks.push({
             id: this.taskIdCounter++,
             description: task,
@@ -56,7 +54,7 @@ export class TasksComponent implements OnInit {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
-  isUniqueTask(taskDescription: string) {
+  validateisUniqueTask(taskDescription: string) {
     return this.tasks.some(task => task.description.toLowerCase() === taskDescription.toLowerCase());
   }
 }

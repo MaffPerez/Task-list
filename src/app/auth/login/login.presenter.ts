@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
     providedIn: 'root'
 })
 
-export class Login {
+export class LoginPresenter {
     user = new FormControl('');
     password = new FormControl('');
 

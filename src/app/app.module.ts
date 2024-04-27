@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 //Store
 import { userReducer } from './store/reducers/user.reducer';
 import { StoreModule } from '@ngrx/store';
+import { TasksComponent } from './workflow/tasks/tasks.component';
 
 @NgModule({
   schemas: [
