@@ -1,25 +1,22 @@
-import { Component } from "@angular/core"
-import { Login } from "./login.presenter"
-import { User } from "../interface/user.interface"
-import { Router } from "@angular/router"
-import { AuthService } from "../service/auth.service";
-
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+import { LoginPresenter } from './login.presenter';
+import { User } from '../interface/user.interface';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  standalone: false,
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   isLoginError = false;
 
   constructor(
-    public presenterLogin: Login,
+    public presenterLogin: LoginPresenter,
     public router: Router,
     private authService: AuthService
-  ) {
-  }
+  ) {}
 
   validateUser(userCredentials: User) {
     const isAuthenticated = this.authService.isValidUser(userCredentials.user, userCredentials.password);
@@ -30,4 +27,5 @@ export class LoginComponent {
     }
     this.presenterLogin.form.reset();
   }
+
 }

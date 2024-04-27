@@ -5,13 +5,11 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
     providedIn: 'root'
 })
 
-export class LoginPresenter {
-    user = new FormControl('');
-    password = new FormControl('');
+export class TasksPresenter {
+    taskDescription = new FormControl('');
 
     form: FormGroup = new FormGroup({
-        user: this.user,
-        password: this.password
+        taskDescription: this.taskDescription,
     });
 
     constructor() {
@@ -19,11 +17,7 @@ export class LoginPresenter {
     }
 
     private addFormValidators() {
-        this.user.setValidators([
-            Validators.required
-        ]);
-
-        this.password.setValidators([
+        this.taskDescription.setValidators([
             Validators.required
         ]);
     }
