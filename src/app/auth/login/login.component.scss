@@ -30,3 +30,9 @@
         text-align: center;
     }
 }
+
+@media (max-height:580px) {
+    .content-img {
+        display:none;
+    }
+}
