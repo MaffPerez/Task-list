@@ -2,9 +2,9 @@
 .form-control:focus{
     box-shadow: none !important;
 }
+
 .form-control, .input-group-text  {
     border: 1px solid green !important;
-
 }
 
 @media (min-width: 992px) {
@@ -14,5 +14,19 @@
     .container-input-login {
     background: white;
     height: 100%;
+    }
+}
+
+@media (max-width:992px) {
+    .content-login {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .img-fluid {
+        width: 60%;
+    }
+    .content-img {
+        text-align: center;
     }
 }
